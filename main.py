@@ -1,11 +1,13 @@
 from kivy.app import App
-from timer_view import TimerScreen
-from timer_controller import TimerController
+from controller import TimerController
+from kivy.uix.boxlayout import BoxLayout
 
 class CookingTimerApp(App):
     def build(self):
+        root = BoxLayout(orientation='vertical')
         controller = TimerController()
-        return TimerScreen(controller)
+        root.add_widget(controller.view)
+        return root
 
 if __name__ == '__main__':
     CookingTimerApp().run()
